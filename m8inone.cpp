@@ -5,15 +5,19 @@ int main() {
   AllInit();
 
   u64 playBitBoard = 0ULL;
-  printf("Start: \n");
+  // int index = 0;
+
+  // for(index = 0; index < 64; index++){
+  //   printf("Index: %d\n", index);
+  //   PrintBitBoard(ClearMask[index]);
+  //   printf("\n");
+  // }
+
+  SETBIT(playBitBoard, 61);
   PrintBitBoard(playBitBoard);
 
-  playBitBoard |= (1ULL << SQ64(D2));
-  printf("D2 Added: \n");
+  CLRBIT(playBitBoard, 61);
   PrintBitBoard(playBitBoard);
 
-  playBitBoard |= (1ULL << SQ64(G2));
-  printf("G2 Added: \n");
-  PrintBitBoard(playBitBoard);
   return 0;
 }
