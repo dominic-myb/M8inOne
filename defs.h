@@ -166,11 +166,17 @@ typedef struct {
 
 #define FR2SQ(f, r) ((21 + (f)) + ((r) * 10))
 #define SQ64(sq120) Sq120ToSq64[sq120]
+#define POP(b) PopBit(b)
+#define CNT(b) CountBits(b)
+#define CLRBIT(bb, sq) ((bb) &= ClearMask[(sq)])
+#define SETBIT(bb, sq) ((bb) |= SetMask[(sq)])
 
 /*** GLOBALS ***/
 
 extern int Sq120ToSq64[BRD_SQ_NUM];
 extern int Sq64ToSq120[64];
+extern u64 SetMask[64];
+extern u64 ClearMask[64];
 
 /*** FUNCTIONS ***/
 
@@ -179,5 +185,6 @@ extern void AllInit();
 
 //! bitboards.cpp
 extern void PrintBitBoard(u64 bb);
-
+extern int PopBit(u64 *bb);
+extern int CountBits(u64 b);
 #endif
